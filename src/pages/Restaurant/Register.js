@@ -59,7 +59,7 @@ const Register = () => {
             data.append('longitude', longitude);
 
             try {
-                const response = await axios.post('http://127.0.0.1:8000/api/restaurant/register/', data, {
+                const response = await axios.post('https://bitebox-backend-production.up.railway.app/api/restaurant/register/', data, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Bearer ${access_token}`,

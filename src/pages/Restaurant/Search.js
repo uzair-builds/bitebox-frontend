@@ -16,7 +16,7 @@ function Search() {
 
   const fetchDishes = async () => {
     
-    axios.get(`http://127.0.0.1:8000/api/store/search?query=${query}`, {
+    axios.get(`https://bitebox-backend-production.up.railway.app/api/store/search?query=${query}`, {
       headers: {
         Authorization: `Bearer ${access_token}`
       }

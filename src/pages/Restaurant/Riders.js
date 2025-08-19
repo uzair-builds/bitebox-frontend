@@ -12,7 +12,7 @@ function Riders() {
 
     const [riders,setRiders]=useState([]);
     useEffect(() => {
-      const res=axios.get(`http://127.0.0.1:8000/api/restaurant/${data?.restaurant_id}/delivery-boys/`).then((res) => {
+      const res=axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/${data?.restaurant_id}/delivery-boys/`).then((res) => {
         setRiders(res.data)
         console.log(res.data);
         
@@ -30,8 +30,8 @@ function Riders() {
           // Check if the user confirmed the deletion
           if (result.isConfirmed) {
               // Make an asynchronous request to delete the product using apiInstance
-              await axios.delete(`http://127.0.0.1:8000/api/restaurant/${data?.restaurant_id}/delivery-boys/${riderid}/`)
-              await axios.get(`http://127.0.0.1:8000/api/restaurant/${data?.restaurant_id}/delivery-boys/`).
+              await axios.delete(`https://bitebox-backend-production.up.railway.app/api/restaurant/${data?.restaurant_id}/delivery-boys/${riderid}/`)
+              await axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/${data?.restaurant_id}/delivery-boys/`).
                   then((res) => {
                     setRiders(res.data);
                     console.log(res.data);
@@ -104,7 +104,7 @@ function Riders() {
                                     onChange={async (e) => {
                                       const newStatus = e.target.value;
                                       try {
-                                        await axios.patch(`http://127.0.0.1:8000/api/restaurant/${data?.restaurant_id}/delivery-boys/${r.id}/`, {
+                                        await axios.patch(`https://bitebox-backend-production.up.railway.app/api/restaurant/${data?.restaurant_id}/delivery-boys/${r.id}/`, {
                                           status: newStatus
                                         });
                                         setRiders((prevRiders) =>

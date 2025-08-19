@@ -29,7 +29,7 @@ function Settings() {
             if (data?.id) {
             
                 try {
-                    axios.get(`http://127.0.0.1:8000/api/user/account/${data?.id}/`).then((res) => {
+                    axios.get(`https://bitebox-backend-production.up.railway.app/api/user/account/${data?.id}/`).then((res) => {
                         console.log(res.data);
                         setProfileData(res.data)
                         // setProfileData({
@@ -73,7 +73,7 @@ function Settings() {
         e.preventDefault();
         setLoading(true)
 
-        const res = await axios.get(`http://127.0.0.1:8000/api/user/account/${data?.id}/`);
+        const res = await axios.get(`https://bitebox-backend-production.up.railway.app/api/user/account/${data?.id}/`);
 
         const formData = new FormData();
         if (profileData.image && profileData.image !== res.data.image) {
@@ -84,7 +84,7 @@ function Settings() {
         formData.append('address', profileData.address);
 
         try {
-            await axios.patch(`http://127.0.0.1:8000/api/user/account/${data?.id}/`, formData, {
+            await axios.patch(`https://bitebox-backend-production.up.railway.app/api/user/account/${data?.id}/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

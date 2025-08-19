@@ -18,7 +18,7 @@ function Earnings() {
       if (data?.restaurant_id) {
         axios
           .get(
-            `http://127.0.0.1:8000/api/restaurant/earnings/${data?.restaurant_id}/`
+            `https://bitebox-backend-production.up.railway.app/api/restaurant/earnings/${data?.restaurant_id}/`
           )
           .then((res) => {
             setEarningStats(res.data[0]);
@@ -27,7 +27,7 @@ function Earnings() {
 
         axios
           .get(
-            `http://127.0.0.1:8000/api/restaurant/monthly-earnings/${data?.restaurant_id}/`
+            `https://bitebox-backend-production.up.railway.app/api/restaurant/monthly-earnings/${data?.restaurant_id}/`
           )
           .then((res) => {
             console.log(res.data);

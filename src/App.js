@@ -64,7 +64,7 @@ useEffect(()=>{
   console.log(data);
   if(data){
 
-    const url =  `http://127.0.0.1:8000/api/store/cart-list/${CartId}/${data.id}/`
+    const url =  `https://bitebox-backend-production.up.railway.app/api/store/cart-list/${CartId}/${data.id}/`
       axios.get(url)
         .then((res) => {
           console.log(res);

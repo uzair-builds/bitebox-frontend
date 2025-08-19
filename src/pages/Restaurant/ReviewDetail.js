@@ -18,7 +18,7 @@ function ReviewDetail() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/restaurant/reviews/${data?.restaurant_id}/${params.review_id}/`)
+            const response = await axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/reviews/${data?.restaurant_id}/${params.review_id}/`)
             setReview(response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -42,7 +42,7 @@ function ReviewDetail() {
 
         formdata.append('reply', updateReviews.reply)
 
-        await axios.patch(`http://127.0.0.1:8000/api/restaurant/reviews/${data?.restaurant_id}/${params.review_id}/`, formdata).then((res) => {
+        await axios.patch(`https://bitebox-backend-production.up.railway.app/api/restaurant/reviews/${data?.restaurant_id}/${params.review_id}/`, formdata).then((res) => {
             console.log(res.data);
             Swal.fire({
                 icon: 'success',

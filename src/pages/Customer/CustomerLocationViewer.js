@@ -10,7 +10,7 @@ const CustomerLocationViewer = () => {
     const wsRef = useRef(null);
 
     useEffect(() => {
-        wsRef.current = new WebSocket(`ws://127.0.0.1:8000/ws/tracking/${orderId}/${trackingToken}/`);
+        wsRef.current = new WebSocket(`wss://bitebox-backend-production.up.railway.app/ws/tracking/${orderId}/${trackingToken}/`);
 
         wsRef.current.onopen = () => console.log("WebSocket Connected (Customer)");
         wsRef.current.onclose = () => console.log("WebSocket Disconnected (Customer)");

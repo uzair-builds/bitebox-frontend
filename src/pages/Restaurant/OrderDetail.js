@@ -18,7 +18,7 @@ function OrderDetail() {
       useEffect(() => {
         if (data?.restaurant_id) {
             
-            axios.get(`http://127.0.0.1:8000/api/restaurant/orders/${data?.restaurant_id}/${param?.order_id}/`).then((res) => {
+            axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/orders/${data?.restaurant_id}/${param?.order_id}/`).then((res) => {
               setOrder(res.data);
               console.log(res.data);
               setAddress(res.data)

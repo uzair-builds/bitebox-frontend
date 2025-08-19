@@ -17,7 +17,7 @@ function Orders() {
         const fetchData = async () => {
             if (data?.restaurant_id) {
                 try {
-                    const response = await axios.get(`http://127.0.0.1:8000/api/restaurant/orders/${data.restaurant_id}/`);
+                    const response = await axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/orders/${data.restaurant_id}/`);
                     setOrders(response.data);
                     console.log("Orders updated:", response.data);
                 } catch (error) {
@@ -70,7 +70,7 @@ function Orders() {
     onChange={async (e) => {
       const newStatus = e.target.value;
       try {
-        await axios.patch(`http://127.0.0.1:8000/api/restaurant/orders/${data.restaurant_id}/${o.oid}/`, {
+        await axios.patch(`https://bitebox-backend-production.up.railway.app/api/restaurant/orders/${data.restaurant_id}/${o.oid}/`, {
           order_status: newStatus
         });
         setOrders((prevOrders) =>

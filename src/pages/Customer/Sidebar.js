@@ -17,7 +17,7 @@ function Sidebar() {
         // }
         if (data?.id) {
             
-            axios.get(`http://127.0.0.1:8000/api/user/account/${data?.id}/`).then((res)=>{
+            axios.get(`https://bitebox-backend-production.up.railway.app/api/user/account/${data?.id}/`).then((res)=>{
                 console.log(res);
                 setProfile(res.data)
             })

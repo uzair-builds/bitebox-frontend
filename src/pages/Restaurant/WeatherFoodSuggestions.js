@@ -23,7 +23,7 @@ const WeatherFoodSuggestions = () => {
         const condition = weatherRes.data.weather[0].main.toLowerCase();
 
         const backendRes = await axios.post(
-          "http://127.0.0.1:8000/api/restaurant/weather-dishes/",
+          "https://bitebox-backend-production.up.railway.app/api/restaurant/weather-dishes/",
           {
             temperature,
             condition,
@@ -82,7 +82,7 @@ const WeatherFoodSuggestions = () => {
                     <div key={dish.id} className="col-md-4 mb-4">
                       <div className="card h-100 shadow-sm">
                         <img
-                          src={`http://127.0.0.1:8000${dish.image}`}
+                          src={`https://bitebox-backend-production.up.railway.app${dish.image}`}
                           className="card-img-top"
                           alt={dish.title}
                           style={{ height: "200px", objectFit: "cover" }}

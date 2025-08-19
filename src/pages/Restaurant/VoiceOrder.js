@@ -168,7 +168,7 @@ const VoiceOrder = () => {
     }
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/restaurant/voice-order/', {
+      const res = await fetch('https://bitebox-backend-production.up.railway.app/api/restaurant/voice-order/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -273,14 +273,14 @@ setAllOrderItems(updatedAllItems);
         formdata.append("cart_id", CartId);
         formdata.append('is_voice_item', 'true');
 
-        await axios.post('http://127.0.0.1:8000/api/store/cart-voice-order/', formdata);
+        await axios.post('https://bitebox-backend-production.up.railway.app/api/store/cart-voice-order/', formdata);
       }
 
       Toast.fire({ icon: "success", title: "All items added to cart" });
 
       const url = userData
-        ? `http://127.0.0.1:8000/api/store/cart-list/${CartId}/${userData.id}/`
-        : `http://127.0.0.1:8000/api/store/cart-list/${CartId}/`;
+        ? `https://bitebox-backend-production.up.railway.app/api/store/cart-list/${CartId}/${userData.id}/`
+        : `https://bitebox-backend-production.up.railway.app/api/store/cart-list/${CartId}/`;
 
       const res = await axios.get(url);
       setCartCount(res?.data.length);
@@ -377,7 +377,7 @@ setAllOrderItems(updatedAllItems);
       finalData.append("city", userAddress.city);
       finalData.append("is_voice_order", "true"); // Add this flag
       
-      await axios.post("http://127.0.0.1:8000/api/store/create-order/", finalData);
+      await axios.post("https://bitebox-backend-production.up.railway.app/api/store/create-order/", finalData);
 
       setOrderConfirmed(true);
       setStage('done');

@@ -17,7 +17,7 @@ const Home = () => {
     const [updateUserLocation] = useUpdateUserLocationMutation();  // Mutation hook
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-      axios.get('http://127.0.0.1:8000/api/store/categories/')
+      axios.get('https://bitebox-backend-production.up.railway.app/api/store/categories/')
         .then(response => {
           setCategories(response.data);
           console.log(response.data);
@@ -42,7 +42,7 @@ const Home = () => {
           await updateUserLocation({ latitude, longitude, access_token });
   
           // Fetch nearby restaurants from the API
-          axios.get('http://127.0.0.1:8000/api/restaurant/nearby-restaurants/', {
+          axios.get('https://bitebox-backend-production.up.railway.app/api/restaurant/nearby-restaurants/', {
             headers: {
               'Authorization': `Bearer ${access_token}`
             },
@@ -100,7 +100,7 @@ const Home = () => {
             <div key={index} className="col-lg-4 col-md-6 mb-4">
               <div className="card h-100 shadow-sm border-0">
                 <Link to={`/detail/${r.id}`}>
-                  <img src={`http://127.0.0.1:8000${r.image}`} className="card-img-top" alt={r.name} style={{ height: '220px', objectFit: 'cover' }} />
+                  <img src={`https://bitebox-backend-production.up.railway.app${r.image}`} className="card-img-top" alt={r.name} style={{ height: '220px', objectFit: 'cover' }} />
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">{r.name}</h5>

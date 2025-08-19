@@ -17,7 +17,7 @@ function Checkout() {
 
 
   useEffect(() => {
-      axios.get(`http://127.0.0.1:8000/api/store/checkout/${param?.order_oid}/`).then((res) => {
+      axios.get(`https://bitebox-backend-production.up.railway.app/api/store/checkout/${param?.order_oid}/`).then((res) => {
         setOrder(res.data);
         console.log(res.data);
       })
@@ -145,7 +145,7 @@ function Checkout() {
                     
 
                     <form
-                      action={`http://127.0.0.1:8000/stripe-checkout/ORDER_ID/`}
+                      action={`https://bitebox-backend-production.up.railway.app/stripe-checkout/ORDER_ID/`}
                       method="POST"
                     >
                       <button

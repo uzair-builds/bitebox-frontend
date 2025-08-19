@@ -61,7 +61,7 @@ const DishDetail = () => {
     })
     useEffect(()=>  {
         
-        axios.get(`http://127.0.0.1:8000/api/store/dish/${params.slug}`).then((res)=>{
+        axios.get(`https://bitebox-backend-production.up.railway.app/api/store/dish/${params.slug}`).then((res)=>{
       
         console.log(res.data);
         
@@ -85,7 +85,7 @@ const DishDetail = () => {
         setPortionSizeValue(portionSizeName.value)
         try {
             
-            const response = await axios.get(`http://127.0.0.1:8000/api/store/dish/${params.slug}`, {
+            const response = await axios.get(`https://bitebox-backend-production.up.railway.app/api/store/dish/${params.slug}`, {
                 params: { portion_size: portionSizeName.value }  // Pass the selected size as a query parameter
             }).then((res)=>{
                 console.log(res)
@@ -124,7 +124,7 @@ const DishDetail = () => {
     const fetchReviewData = async () => {
         try {
           const res = await axios.get(
-            `http://127.0.0.1:8000/api/restaurant/reviews/${dishes?.id}`,{
+            `https://bitebox-backend-production.up.railway.app/api/restaurant/reviews/${dishes?.id}`,{
                 headers: {
                   Authorization: `Bearer ${access_token}`,
                 },
@@ -154,13 +154,13 @@ const DishDetail = () => {
         formdata.append("spiceLevel",spiceLevelValue)
         formdata.append("cart_id",CartId)
 
-        const response= await axios.post(`http://127.0.0.1:8000/api/store/cart/`,formdata)
+        const response= await axios.post(`https://bitebox-backend-production.up.railway.app/api/store/cart/`,formdata)
         console.log(response);
         Toast.fire({
             icon: 'success',
             title: 'Added To Cart'
         });
-        const url = data ? `http://127.0.0.1:8000/api/store/cart-list/${CartId}/${data.id}/` : `http://127.0.0.1:8000/api/store/cart-list/${CartId}/`;
+        const url = data ? `https://bitebox-backend-production.up.railway.app/api/store/cart-list/${CartId}/${data.id}/` : `https://bitebox-backend-production.up.railway.app/api/store/cart-list/${CartId}/`;
         const res= await axios.get(url)
         .then((res) => {
             console.log("response ======",res.data);
@@ -201,7 +201,7 @@ const handleReviewSubmit=(e)=>{
     formData.append('rating',createReviews.rating)
     formData.append('review',createReviews.review)
 
-    axios.post(`http://127.0.0.1:8000/api/restaurant/reviews/${dishes?.id}/`,formData,{
+    axios.post(`https://bitebox-backend-production.up.railway.app/api/restaurant/reviews/${dishes?.id}/`,formData,{
         headers: {
           Authorization: `Bearer ${access_token}`, // if using JWT
         }

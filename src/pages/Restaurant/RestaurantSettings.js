@@ -20,7 +20,7 @@ function RestaurantSettings() {
         if (data?.id) {
           
           try {
-              axios.get(`http://127.0.0.1:8000/api/restaurant/profile-update/${data?.id}/`).then((res) => {
+              axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/profile-update/${data?.id}/`).then((res) => {
               setProfileData(res.data)
             console.log(res.data);
         //     setProfileData({
@@ -45,7 +45,7 @@ function RestaurantSettings() {
         if (data?.id) {
           
           try {
-              axios.get(`http://127.0.0.1:8000/api/restaurant/settings-update/${data?.restaurant_id}/`).then((res) => {
+              axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/settings-update/${data?.restaurant_id}/`).then((res) => {
               setRestaurantData(res.data)
             console.log(res.data);
         //     setProfileData({
@@ -104,7 +104,7 @@ function RestaurantSettings() {
         // setLoading(true)
         if (data?.id) {
           
-          const res = await  axios.get(`http://127.0.0.1:8000/api/restaurant/profile-update/${data.id}/`);
+          const res = await  axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/profile-update/${data.id}/`);
     
         const formData = new FormData();
         if (profileData.image && profileData.image !== res.data.image) {
@@ -119,7 +119,7 @@ function RestaurantSettings() {
       
           
           try {
-            axios.patch(`http://127.0.0.1:8000/api/restaurant/profile-update/${data.id}/`, formData, {
+            axios.patch(`https://bitebox-backend-production.up.railway.app/api/restaurant/profile-update/${data.id}/`, formData, {
               headers: {
                 'Content-Type': 'multipart/form-data'
               },
@@ -141,7 +141,7 @@ function RestaurantSettings() {
         // setLoading(true)
         if (data?.id) {
           
-        const res = await  axios.get(`http://127.0.0.1:8000/api/restaurant/settings-update/${data?.restaurant_id}/`);
+        const res = await  axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/settings-update/${data?.restaurant_id}/`);
     
         const formData = new FormData();
         if (restaurantData.image && restaurantData.image !== res.data.image) {
@@ -152,7 +152,7 @@ function RestaurantSettings() {
         
     
         try {
-          axios.patch(`http://127.0.0.1:8000/api/restaurant/settings-update/${data?.restaurant_id}/`, formData, {
+          axios.patch(`https://bitebox-backend-production.up.railway.app/api/restaurant/settings-update/${data?.restaurant_id}/`, formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             },

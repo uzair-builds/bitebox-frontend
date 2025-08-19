@@ -11,11 +11,11 @@ function RestaurantStore() {
     const param=useParams()
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/restaurant/shop/${param.slug}/`).then((res)=>{
+        axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/shop/${param.slug}/`).then((res)=>{
             setRestaurant(res.data)
             console.log(res.data)
         })
-        axios.get(`http://127.0.0.1:8000/api/restaurant/dishes-store/${param.slug}/`).then((res)=>{
+        axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/dishes-store/${param.slug}/`).then((res)=>{
             console.log(res.data)
             setDish(res.data)
         })

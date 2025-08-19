@@ -14,7 +14,7 @@ function COrders() {
   useEffect(async () => {
     if (data?.id) {
       await axios
-        .get(`http://127.0.0.1:8000/api/customer/orders/${data?.id}`)
+        .get(`https://bitebox-backend-production.up.railway.app/api/customer/orders/${data?.id}`)
         .then((res) => {
           console.log(res);
           setOrders(res.data);

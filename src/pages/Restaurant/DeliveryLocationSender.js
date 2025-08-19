@@ -7,7 +7,7 @@ const DeliveryLocationSender = () => {
     const latestCoords = useRef({ latitude: 0, longitude: 0 });
 
     useEffect(() => {
-        wsRef.current = new WebSocket(`ws://127.0.0.1:8000/ws/tracking/${orderId}/${trackingToken}/`);
+        wsRef.current = new WebSocket(`wss://bitebox-backend-production.up.railway.app/ws/tracking/${orderId}/${trackingToken}/`);
 
         wsRef.current.onopen = () => console.log("WebSocket Connected (Rider)");
         wsRef.current.onclose = () => console.log("WebSocket Disconnected (Rider)");

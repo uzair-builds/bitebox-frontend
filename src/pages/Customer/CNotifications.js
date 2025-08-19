@@ -15,7 +15,7 @@ let { access_token } = getToken();
         if(data?.id){
 
         }
-        axios.get(`http://127.0.0.1:8000/api/customer/notifications/${data?.id}/`).then((res) => {
+        axios.get(`https://bitebox-backend-production.up.railway.app/api/customer/notifications/${data?.id}/`).then((res) => {
             setNotifications(res.data);
             
         })

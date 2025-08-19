@@ -11,7 +11,7 @@ const RestaurantDetail = () => {
 
   useEffect(() => {
     // Step 1: Fetch dishes
-    axios.get(`http://127.0.0.1:8000/api/store/dishes/`, {
+    axios.get(`https://bitebox-backend-production.up.railway.app/api/store/dishes/`, {
       params: { restaurant_id: id }
     })
     .then(response => {
@@ -27,7 +27,7 @@ const RestaurantDetail = () => {
     // Step 2: When dishes are fetched, get restaurant info using the first dish's slug
     if (dishes.length > 0) {
       const slug = dishes[0].slug;  // Get slug from the first dish
-      axios.get(`http://127.0.0.1:8000/api/store/dish/${slug}`)
+      axios.get(`https://bitebox-backend-production.up.railway.app/api/store/dish/${slug}`)
         .then(response => {
           console.log("Fetched Restaurant:", response.data);
           setRestaurant(response.data);

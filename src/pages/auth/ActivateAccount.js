@@ -12,7 +12,7 @@ const ActivateAccount = () => {
   useEffect(() => {
     const activateUser = async () => {
       try {
-        const res = await axios.get(`http://127.0.0.1:8000/api/user/activate/${uid}/${token}/`);
+        const res = await axios.get(`https://bitebox-backend-production.up.railway.app/api/user/activate/${uid}/${token}/`);
         setStatusMsg(res.data.msg);
       } catch (error) {
         setIsError(true);

@@ -16,7 +16,7 @@ function RestaurantDashboard() {
   useEffect(() => {
     console.log(data)
     if (data?.restaurant_id) {  // ✅ Ensure restaurant_id exists before making API call
-      axios.get(`http://127.0.0.1:8000/api/restaurant/stats/${data.restaurant_id}/`)
+      axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/stats/${data.restaurant_id}/`)
         .then((res) => {
           console.log(res.data);
           setStats(res.data[0]);
@@ -24,7 +24,7 @@ function RestaurantDashboard() {
         .catch((err) => {
           console.error("Error fetching stats:", err);
         });
-        axios.get(`http://127.0.0.1:8000/api/restaurant/dishes/${data.restaurant_id}/`).
+        axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/dishes/${data.restaurant_id}/`).
         then((res) => {
           setDishes(res.data);
           console.log(res.data);

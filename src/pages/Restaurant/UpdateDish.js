@@ -114,7 +114,7 @@ function UpdateDish() {
     }
     useEffect(() => {
         const fetchCategory = async () => {
-            axios.get('http://127.0.0.1:8000/api/store/categories/').then((res) => {
+            axios.get('https://bitebox-backend-production.up.railway.app/api/store/categories/').then((res) => {
                 setCategory(res.data)
                 console.log(res.data)
             })
@@ -123,7 +123,7 @@ function UpdateDish() {
     }, [])
 
     useEffect(()=>{
-        axios.get(`http://127.0.0.1:8000/api/restaurant/update-dish/${userdata?.restaurant_id}/${param.did}/`).then((res)=>{
+        axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/update-dish/${userdata?.restaurant_id}/${param.did}/`).then((res)=>{
             console.log(res.data);
             setDish(res.data)
             setSpecifications(res.data.specification)
@@ -195,7 +195,7 @@ function UpdateDish() {
                 }
             });
   
-            const response = await axios.patch(`http://127.0.0.1:8000/api/restaurant/update-dish/${userdata?.restaurant_id}/${param.did}/`, formData, {
+            const response = await axios.patch(`https://bitebox-backend-production.up.railway.app/api/restaurant/update-dish/${userdata?.restaurant_id}/${param.did}/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

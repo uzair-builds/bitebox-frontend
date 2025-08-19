@@ -18,7 +18,7 @@ const [order, setOrder] = useState([])
   useEffect(() => {
     if (data?.id) {
         
-        axios.get(`http://127.0.0.1:8000/api/customer/order/detail/${data?.id}/${param?.order_oid}`).then((res) => {
+        axios.get(`https://bitebox-backend-production.up.railway.app/api/customer/order/detail/${data?.id}/${param?.order_oid}`).then((res) => {
           setOrder(res.data);
           console.log(res.data);
           

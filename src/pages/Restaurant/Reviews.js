@@ -18,7 +18,7 @@ function Reviews() {
     
       const fetchData = async () => {
         try {
-          const response = await axios.get(`http://127.0.0.1:8000/api/restaurant/restaurant-reviews/${data?.restaurant_id}/`);
+          const response = await axios.get(`https://bitebox-backend-production.up.railway.app/api/restaurant/restaurant-reviews/${data?.restaurant_id}/`);
           setReviews(response.data);
           console.log(response.data);
           
@@ -45,7 +45,7 @@ function Reviews() {
     
         formdata.append('reply', updateReviews.reply)
     
-        await axios.patch(`http://127.0.0.1:8000/api/restaurant/reviews/${data?.restaurant_id}/${reviewId}/`, formdata).then((res) => {
+        await axios.patch(`https://bitebox-backend-production.up.railway.app/api/restaurant/reviews/${data?.restaurant_id}/${reviewId}/`, formdata).then((res) => {
           console.log(res.data);
         })
     

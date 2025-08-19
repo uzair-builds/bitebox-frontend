@@ -29,7 +29,7 @@ function Cart() {
       const [city, setCity] = useState("")
 
   const fetchCartData = (cart_id, user_id) => {
-    const url = user_id ? `http://127.0.0.1:8000/api/store/cart-list/${cart_id}/${user_id}/` : `http://127.0.0.1:8000/api/store/cart-list/${cart_id}/`;
+    const url = user_id ? `https://bitebox-backend-production.up.railway.app/api/store/cart-list/${cart_id}/${user_id}/` : `https://bitebox-backend-production.up.railway.app/api/store/cart-list/${cart_id}/`;
     axios.get(url)
       .then((res) => {
         console.log(res);
@@ -40,7 +40,7 @@ function Cart() {
   };
 
   const fetchCartTotalData = (cart_id, user_id) => {
-    const url = user_id ? `http://127.0.0.1:8000/api/store/cart-detail/${cart_id}/${user_id}/` : `http://127.0.0.1:8000/api/store/cart-detail/${cart_id}/`;
+    const url = user_id ? `https://bitebox-backend-production.up.railway.app/api/store/cart-detail/${cart_id}/${user_id}/` : `https://bitebox-backend-production.up.railway.app/api/store/cart-detail/${cart_id}/`;
     axios.get(url)
       .then((res) => {
         console.log(res);
@@ -100,7 +100,7 @@ const updateCart= async(dish_id,price,portion,spice)=>{
         formdata.append("country","undefined")
         formdata.append("cart_id",CartId)
 
-        const response= await axios.post(`http://127.0.0.1:8000/api/store/cart/`,formdata)
+        const response= await axios.post(`https://bitebox-backend-production.up.railway.app/api/store/cart/`,formdata)
         console.log(response);
         fetchCartData(CartId, data?.id);
         fetchCartTotalData(CartId, data?.id);
@@ -109,8 +109,8 @@ const updateCart= async(dish_id,price,portion,spice)=>{
 }
 const handleDeleteCartItem= async (itemId)=>{
   const url=data?.id 
-  ? `http://127.0.0.1:8000/api/store/cart-delete/${CartId}/${data?.id}/${itemId}/`
-  :`http://127.0.0.1:8000/api/store/cart-delete/${CartId}/${itemId}/`
+  ? `https://bitebox-backend-production.up.railway.app/api/store/cart-delete/${CartId}/${data?.id}/${itemId}/`
+  :`https://bitebox-backend-production.up.railway.app/api/store/cart-delete/${CartId}/${itemId}/`
   await axios.delete(url)
   
   fetchCartData(CartId, data?.id);
@@ -158,7 +158,7 @@ const createCartOrder = async () => {
     formData.append('cart_id', CartId);
     formData.append('user_id', data ? data.id : 0);
 
-    const response = await axios.post('http://127.0.0.1:8000/api/store/create-order/', formData);
+    const response = await axios.post('https://bitebox-backend-production.up.railway.app/api/store/create-order/', formData);
     console.log(response.data);
 
     Swal.fire({

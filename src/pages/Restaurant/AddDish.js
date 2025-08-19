@@ -117,7 +117,7 @@ function AddDish() {
 
     useEffect(() => {
         const fetchCategory = async () => {
-            axios.get('http://127.0.0.1:8000/api/store/categories/').then((res) => {
+            axios.get('https://bitebox-backend-production.up.railway.app/api/store/categories/').then((res) => {
                 setCategory(res.data)
                 console.log(res.data)
             })
@@ -189,7 +189,7 @@ function AddDish() {
               }
           });
 
-          const response = await axios.post(`http://127.0.0.1:8000/api/restaurant/create-dish/${userdata?.restaurant_id}/`, formData, {
+          const response = await axios.post(`https://bitebox-backend-production.up.railway.app/api/restaurant/create-dish/${userdata?.restaurant_id}/`, formData, {
               headers: {
                   'Content-Type': 'multipart/form-data',
               },
